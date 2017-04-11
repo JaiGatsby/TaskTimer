@@ -3,20 +3,13 @@ import { Template } from 'meteor/templating';
 import { Tasks } from '../api/tasks.js';
 
 import './task.html';
-var glob;
+
 Template.task.events({
 	'click .finished'() {
-		// console.log("should disappear");
-		// console.log(this._id);
 
-		// console.log(this.end);
 		Tasks.update(this._id, {
       		$set: { end: ! this.end },
     	});
-
-  //   	Tasks.update(this._id,{
-		// 	$set: {elapsed: null},
-		// });
 
 	},
 	'click .delete'(){
@@ -37,8 +30,8 @@ Template.task.helpers({
 		// }
 		if (this.pause || this.end){
 			console.log("backup");
-			console.log(this.elapsed);
-			return glob;
+			console.log(this.backup);
+			return this.backup;
 		}
 		else{var monitor = startTime?Chronos.currentTime(100) - startTime: null;}
 		
@@ -53,9 +46,12 @@ Template.task.helpers({
 	    if (minutes < 10) {minutes = "0"+minutes;}
 	    if (seconds < 10) {seconds = "0"+seconds;}
 		// var time = new Date(monitor);
+
 		// this.backup = hours+":"+minutes;
+		Tasks.update(this._id, {
+      		$set: { backup:  hours+":"+minutes },
+    	});
 		// console.log(this.backup);
-		glob = hours+":"+minutes;
 		return hours+":"+minutes;
 	}
 });
