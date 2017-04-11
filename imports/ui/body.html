@@ -1,0 +1,23 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+
+      <form class="new-task">
+        <input type ="text" name="text" placeholder="Type to add new Tasks" />
+      </form>
+
+    </header>
+ 
+    <ul>
+      {{#each tasks}}
+        {{> task}} <!--{{> template}} is the format to include template-->
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<!-- the name of the template is how it is called in body-->
+<template name="task"> 
+  <li>{{text}}</li>
+</template>
