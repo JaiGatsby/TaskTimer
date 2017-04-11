@@ -1,12 +1,12 @@
 <!-- the name of the template is how it is called in body-->
 <template name="task"> 
-  <li class="{{#if fin}}finish{{/if}}">
+  <li class="{{#if (end)}}finish{{/if}}">
   	<button class="delete">&times;</button>
-
+ 
   	<button type="button" class="finished vanish">Finish</button>
-  	<button type="button" class="pause vanish">Pause</button>
+  	<button type="button" class="{{#if pause}}pause{{/if}} vanish">Pause</button>
 
   	<span class="text">{{text}}</span>
-  	<span class="elapsed">{{elapsedTime(elapsed)}}</span>
+  	<span class="{{#if pause}}pause{{/if}} elapsed">{{elapsedTime(elapsed)}}</span>
   </li>
 </template>

@@ -17,9 +17,9 @@ Template.body.events({
 		event.preventDefault(); // Prevent default(empty) form submit
 
 		// Get value
-		console.log("Create new task");
-		console.log(event);
-		console.log(new Date().getTime())
+		// console.log("Create new task");
+		// console.log(event);
+		// console.log(new Date().getTime())
 		const target = event.target;
 		const text = target.text.value;
 
@@ -28,6 +28,8 @@ Template.body.events({
 	      text,
 	      createdAt: new Date(), // current time
 	      elapsed: new Date().getTime(),
+	      pause: false,
+	      end: false,
 	    });
 
 		target.text.value="";

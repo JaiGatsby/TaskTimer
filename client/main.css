@@ -77,6 +77,10 @@ ul {
 .elapsed{
 	color:#f00;
 }
+
+.pause{
+	display:none;
+}
  
 li {
   position: relative;
@@ -90,7 +94,7 @@ li .text {
 }
  
 li.finish {
-  background-color: #888;
+  background-color: #2d2;
 }
  
 li.finish .text {
