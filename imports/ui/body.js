@@ -2,6 +2,7 @@ import {Template} from 'meteor/templating';
 
 import { Tasks } from '../api/tasks.js';
 
+import './task.js';
 import './body.html';
 // body section can be accessed in js by Template.body
 Template.body.helpers({
@@ -24,6 +25,7 @@ Template.body.events({
 	    Tasks.insert({
 	      text,
 	      createdAt: new Date(), // current time
+	      elapsed: 0.0,
 	    });
 
 		target.text.value="";
